@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://blog.derekperez.com/"
 
   # Gem Files
-  s.files = %w(sdb_service.rb)
+  s.files = %w(sdb_service.rb README)
   s.files += Dir.glob("lib/**/*.*")
 
   # Gem Bookkeeping
