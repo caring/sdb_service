@@ -132,7 +132,7 @@ module SdbService
     # simple method for associating and activiating a serializer strategy for an
     # instance of this class.
     def load_serializer!(serializer)
-      @serializer = constantize("#{serializer}_serializer", "lib/sdb_service/serializers")
+      @serializer = constantize("#{serializer}_serializer", "sdb_service/serializers")
     end
   
     # accessor for serializer
