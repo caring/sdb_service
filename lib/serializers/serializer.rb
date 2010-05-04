@@ -17,6 +17,8 @@ class Serializer
     @transformed_payload
   end
   
+  # these methods should be overriden by the strategy that subclasses the Serializer class.
+  
   def serialize_payload
     raise "override me! -- #serialize_payload"
   end
