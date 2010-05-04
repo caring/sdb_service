@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.2.0"
+  s.version = "0.3.0"
   s.date = "2010-05-04"
 
   # Gem Details
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://blog.derekperez.com/"
 
   # Gem Files
-  s.files = %w(sdb_service.rb README)
+  s.files = %w(README)
   s.files += Dir.glob("lib/**/*.*")
 
   # Gem Bookkeeping
