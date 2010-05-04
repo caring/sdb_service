@@ -1,4 +1,7 @@
 $: << "lib/"
-require 'simple_data_service'
-SERV = SimpleDataService.new("caring-syslog-test")
+require 'rubygems'
+require 'sdb_service'
+
+
+SERV = SdbService::Service.new("caring-syslog-test")
 puts "ready."
