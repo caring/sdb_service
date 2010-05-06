@@ -42,7 +42,7 @@ module SdbService
           serializer_result = serializer.new(value)
           serializer_result.serialize!.to_s
         end
-        data["mime_type"] = "text/#{serializer_result.valid? ? self.serializer_format : "plain"}"
+        data["mime_type"] = "text/#{self.serializer_format}"
       else
         data = raw_payload
         data["mime_type"] = "text/plain"

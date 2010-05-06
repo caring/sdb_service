@@ -8,27 +8,11 @@ module SdbService
     end
   
     def serialize!
-      begin
-        @transformed_payload = serialize_payload(@payload)
-        @valid = true
-      rescue
-        @valid = false
-        @transformed_payload = @payload
-      end
-      return @transformed_payload
+      @transformed_payload = serialize_payload(@payload) rescue @payload
     end
   
     def deserialize!
-      begin
-        @transformed_payload = deserialize_payload(@payload) 
-      rescue
-        @transformed_payload = @payload
-      end
-      return @transformed_payload
-    end
-  
-    def valid?
-      @valid
+      @transformed_payload = deserialize_payload(@payload) rescue @payload
     end
     
     def to_s
