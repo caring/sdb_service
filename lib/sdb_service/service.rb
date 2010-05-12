@@ -73,24 +73,29 @@ module SdbService
       data_store.delete_attributes(self.database, id)
     end
   
+    def query!(statement)
+      stmt = statement.nil? ? "" : "[#{statement}]"
+      data_store.query(self.database, stmt)
+    end
+    
     # this method allows you to query simple for raw information using its query language.
     def query(statement)
-      data_store.query(self.database, statement)
+      results = Hash.new
+      self.query!(statement)[0].each do |item_name|
+        results[item_name] = self.get(item_name)
+      end
+      return results
     end
   
     # this method returns all of the UUIDS stored in Amazon SimpleDB for the current domain.
     def all!
-      self.query("")
+      self.query!(nil)
     end
   
     # this method returns all of the fully qualified, and deserialized objects stored in Amazon
     # SimpleDB for the current domain.
     def all
-      results = Hash.new
-      self.all![0].each do |item_name|
-        results[item_name] = self.get(item_name)
-      end
-      return results
+      self.query(nil)
     end
   
     # this method returns a list of all databases associated with this AWS account.
