@@ -9,7 +9,11 @@ module SdbService
     end
   
     def deserialize_payload(payload)
-      payload.is_a?(String) ? payload : JSON.parse(payload)
+      begin
+        return JSON.parse(payload)
+      rescue JSON::ParserError
+        return payload
+      end
     end
   
   end
