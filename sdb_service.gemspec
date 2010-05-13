@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.3.3"
-  s.date = "2010-05-12"
+  s.version = "0.3.4"
+  s.date = "2010-05-13"
 
   # Gem Details
   s.name = "sdb_service"

@@ -3,20 +3,14 @@ module SdbService
   
     def initialize(data)
       @payload = data
-      @transformed_payload = nil
-      @valid = true
     end
   
     def serialize!
-      @transformed_payload = serialize_payload(@payload) rescue @payload
+      serialize_payload(@payload) rescue @payload
     end
   
     def deserialize!
-      @transformed_payload = deserialize_payload(@payload) rescue @payload
-    end
-    
-    def to_s
-      @transformed_payload
+      deserialize_payload(@payload) rescue @payload
     end
   
     # these methods should be overriden by the strategy that subclasses the Serializer class.

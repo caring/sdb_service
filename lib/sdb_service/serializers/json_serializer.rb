@@ -5,11 +5,11 @@ module SdbService
   class JsonSerializer < Serializer
   
     def serialize_payload(payload)
-      JSON.generate(payload)
+      payload.is_a?(String) ? payload : JSON.generate(payload)
     end
   
     def deserialize_payload(payload)
-      JSON.parse(payload)
+      payload.is_a?(String) ? payload : JSON.parse(payload)
     end
   
   end

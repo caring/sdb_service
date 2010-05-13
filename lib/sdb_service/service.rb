@@ -40,7 +40,7 @@ module SdbService
       if raw_payload.nil?
         data = _parse(data_payload) do |value|
           serializer_result = serializer.new(value)
-          serializer_result.serialize!.to_s
+          serializer_result.serialize!
         end
         data["mime_type"] = "text/#{self.serializer_format}"
       else
@@ -74,7 +74,7 @@ module SdbService
     end
   
     def query!(statement)
-      stmt = statement.nil? ? "" : "[#{statement}]"
+      stmt = statement.nil? ? "" : statement
       data_store.query(self.database, stmt)
     end
     
