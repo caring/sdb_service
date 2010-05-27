@@ -1,5 +1,9 @@
 SDBService Gem - even simpler wrapper around aws_sdb, with builtin serialization.
 
+
+debug: irb -rubygems -I lib -r sdb_service
+
+
 The MIT License
 
 Copyright (c) 2010 Derek Perez (derek@derkeperez.com) | Caring.com

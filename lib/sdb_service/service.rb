@@ -73,18 +73,21 @@ module SdbService
       data_store.delete_attributes(self.database, id)
     end
   
-    def query!(statement)
+    def query!(statement, limit = 30, token = nil)
       stmt = statement.nil? ? "" : statement
-      data_store.query(self.database, stmt)
+      data_store.query(self.database, stmt, limit, token)
     end
     
     # this method allows you to query simple for raw information using its query language.
-    def query(statement)
-      results = Hash.new
-      self.query!(statement)[0].each do |item_name|
-        results[item_name] = self.get(item_name)
+    def query(statement, limit = 30, token = nil)
+      response = Hash.new
+      response['results'] = Hash.new
+      query, token = self.query!(statement, limit, token)
+      query.each do |item_name|
+        response['results'][item_name] = self.get(item_name)
       end
-      return results
+      response['token'] = token unless token.nil?
+      return response
     end
   
     # this method returns all of the UUIDS stored in Amazon SimpleDB for the current domain.
