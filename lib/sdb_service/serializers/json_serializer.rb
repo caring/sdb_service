@@ -1,5 +1,8 @@
 require 'sdb_service/serializer'
-require 'json/pure'
+
+unless defined? JSON
+  require 'json/pure'
+end
 
 module SdbService
   class JsonSerializer < Serializer
