@@ -8,7 +8,11 @@ module SdbService
   class JsonSerializer < Serializer
   
     def serialize_payload(payload)
-      payload.is_a?(String) ? payload : JSON.generate(payload)
+      if payload.is_a?(String)
+        return payload
+      else
+        payload.respond_to?(:to_json) ? payload.to_json : JSON.dump(payload)
+      end
     end
   
     def deserialize_payload(payload)
