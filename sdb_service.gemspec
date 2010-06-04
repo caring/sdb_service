@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
   # Release Specific Information
-  s.version = "0.3.9"
-  s.date = "2010-06-02"
+  s.version = "0.4.0"
+  s.date = "2010-06-04"
 
   # Gem Details
   s.name = "sdb_service"
-  s.authors = ["Derek Perez"]
+  s.authors = ["Derek Perez", "Chris Eppstein"]
   s.summary = %q{even simpler wrapper around aws_sdb, with builtin serialization.}
   s.description = %q{even simpler wrapper around aws_sdb, with builtin serialization.}
   s.email = "derek@derekperez.com"
