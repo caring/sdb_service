@@ -22,6 +22,16 @@ module SdbService
         return payload
       end
     end
+    
+    private
+    
+    def is_serializable?(payload)
+      if payload.is_a?(String) || (payload.is_a?(Array) && !payload.find { |p| p.class != String })
+        false
+      else
+        true
+      end
+    end
   
   end
 end
