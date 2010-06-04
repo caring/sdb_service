@@ -84,7 +84,7 @@ module SdbService
       response['results'] = Hash.new
       query, token = self.query!(statement, limit, token)
       query.each do |item|
-        response['results'][item[:name]] = item[:attributes]
+        response['results'][item[:name]] = _parse(item[:attributes]) { |attrs| serializer.new(attrs).deserialize! }
       end
       response['token'] = token unless token.nil?
       return response
