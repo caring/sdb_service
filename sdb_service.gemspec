@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.add_dependency("uuidtools", [">= 2.1.1"])
   s.add_dependency("json_pure", [">= 1.4.1"])
-  s.add_dependency("aws-sdb", [">= 0.3.1"])
+  s.add_dependency("caring-aws-sdb", [">= 0.3.2.caring.1"])
 end
