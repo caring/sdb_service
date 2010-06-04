@@ -75,7 +75,7 @@ module SdbService
   
     def query!(statement, limit = 30, token = nil)
       stmt = statement.nil? ? "" : statement
-      data_store.query(self.database, stmt, limit, token)
+      data_store.query_with_attributes(self.database, stmt, limit, token)
     end
     
     # this method allows you to query simple for raw information using its query language.
@@ -83,8 +83,8 @@ module SdbService
       response = Hash.new
       response['results'] = Hash.new
       query, token = self.query!(statement, limit, token)
-      query.each do |item_name|
-        response['results'][item_name] = self.get(item_name)
+      query.each do |item|
+        response['results'][item[:name]] = item[:attributes]
       end
       response['token'] = token unless token.nil?
       return response
